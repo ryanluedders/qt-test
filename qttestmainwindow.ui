@@ -14,71 +14,30 @@
    <string>QtTestMainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QListWidget" name="listFiles">
+   <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>161</width>
-      <height>301</height>
+      <x>0</x>
+      <y>0</y>
+      <width>661</width>
+      <height>351</height>
      </rect>
     </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QStackedWidget" name="widgetStack">
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <widget class="QWidget" name="page"/>
+       <widget class="QWidget" name="page_2"/>
+      </widget>
+     </item>
+    </layout>
    </widget>
-   <widget class="QPushButton" name="buttonAdd">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>320</y>
-      <width>81</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Add</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="buttonRemove">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>320</y>
-      <width>81</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Remove</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="labelInfo">
-    <property name="geometry">
-     <rect>
-      <x>180</x>
-      <y>10</y>
-      <width>471</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="buttonViewPdf">
-    <property name="geometry">
-     <rect>
-      <x>540</x>
-      <y>320</y>
-      <width>113</width>
-      <height>32</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>View PDF</string>
-    </property>
-   </widget>
+   <zorder>gridLayoutWidget</zorder>
+   <zorder>widgetStack</zorder>
+   <zorder>widgetStack</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -89,6 +48,18 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuMENU">
+    <property name="title">
+     <string>MENU</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuMENU_2">
+    <property name="title">
+     <string>MENU 2</string>
+    </property>
+   </widget>
+   <addaction name="menuMENU"/>
+   <addaction name="menuMENU_2"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">

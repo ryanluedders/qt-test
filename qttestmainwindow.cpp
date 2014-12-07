@@ -1,45 +1,49 @@
 #include "qttestmainwindow.h"
 #include "ui_qttestmainwindow.h"
 
+#include <QMessageBox>
 #include <QString>
 #include <QWindow>
 
-QtTestMainWindow::QtTestMainWindow(QWidget *parent) :
+#include "testwidgetone.h"
+#include "testwidgettwo.h"
+#include "chooserpage.h"
+
+static QtTestMainWindow * instance = 0;
+
+QtTestMainWindow & QtTestMainWindow::getInstance() {
+    if (instance == 0) {
+        instance = new QtTestMainWindow(0);
+    }
+    return *instance;
+}
+
+QtTestMainWindow::QtTestMainWindow(QWidget * parent) :
     QMainWindow(parent),
     ui(new Ui::QtTestMainWindow)
 {
     ui->setupUi(this);
 
-    connect(
-        ui->buttonAdd,
-        SIGNAL(released()),
-        this,
-        SLOT(addFileToList())
-        );
-
-    connect(
-        ui->buttonRemove,
-        SIGNAL(released()),
-        this,
-        SLOT(removeFile())
-        );
+    pushWidget(new ChooserPage());
 }
 
-QtTestMainWindow::~QtTestMainWindow()
-{
+QtTestMainWindow::~QtTestMainWindow() {
     delete ui;
 }
 
-void QtTestMainWindow::addFileToList() {
-    const QString fileString("filename");
-    ui->listFiles->addItem(fileString);
+void QtTestMainWindow::pushWidget(QWidget *widget) {
+    ui->widgetStack->addWidget(widget);
+    ui->widgetStack->setCurrentWidget(widget);
 }
 
-void QtTestMainWindow::removeFile() {
-    QList<QListWidgetItem*> selected = ui->listFiles->selectedItems();
+void QtTestMainWindow::popWidget() {
+    if (ui->widgetStack->currentWidget() != 0) {
+        ui->widgetStack->removeWidget(ui->widgetStack->currentWidget());
+    }
+}
 
-    QList<QListWidgetItem*>::iterator it;
-    for(it = selected.begin(); it != selected.end(); ++it) {
-        ui->listFiles->removeItemWidget(*it);
+void QtTestMainWindow::popAllWidgets() {
+    while (ui->widgetStack->currentWidget() != 0) {
+        popWidget();
     }
 }

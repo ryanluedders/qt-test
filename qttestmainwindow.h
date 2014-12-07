@@ -3,6 +3,7 @@
 
 #include <QListWidget>
 #include <QMainWindow>
+#include "WidgetManager.h"
 
 namespace Ui {
 class QtTestMainWindow;
@@ -13,12 +14,18 @@ class QtTestMainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit QtTestMainWindow(QWidget *parent = 0);
     ~QtTestMainWindow();
+    static QtTestMainWindow & getInstance();
+
+    void pushWidget(QWidget * widget);
+    void popWidget();
+    void popAllWidgets();
+
+private:
+    QtTestMainWindow();
+    explicit QtTestMainWindow(QWidget *parent = 0);
 
 private slots:
-    void addFileToList();
-    void removeFile();
 
 private:
     Ui::QtTestMainWindow *ui;

@@ -11,10 +11,23 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = qttest
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
-        qttestmainwindow.cpp
+        qttestmainwindow.cpp \
+    testwidgetone.cpp \
+    testwidgettwo.cpp \
+    chooserpage.cpp
 
-HEADERS  += qttestmainwindow.h
+HEADERS  += qttestmainwindow.h \
+    testwidgetone.h \
+    testwidgettwo.h \
+    chooserpage.h \
+    WidgetManager.h
 
-FORMS    += qttestmainwindow.ui
+FORMS    += qttestmainwindow.ui \
+    testwidgetone.ui \
+    testwidgettwo.ui \
+    chooserpage.ui
+
+# enable c++11 support
+QMAKE_CXXFLAGS += -std=c++0x
+CONFIG += c++11
