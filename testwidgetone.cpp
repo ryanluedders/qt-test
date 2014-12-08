@@ -1,6 +1,6 @@
 #include "testwidgetone.h"
 #include "ui_testwidgetone.h"
-#include "qttestmainwindow.h"
+#include "mainpagemanager.h"
 
 #include <QMessageBox>
 
@@ -22,7 +22,7 @@ TestWidgetOne::~TestWidgetOne()
 }
 
 void TestWidgetOne::handleBackClicked() {
-    QtTestMainWindow::getInstance().pop();
+    MainPageManager::getInstance().pop();
 }
 
 void TestWidgetOne::handleMessageBoxClicked() {

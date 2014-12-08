@@ -6,16 +6,16 @@
 #include "WidgetManager.h"
 
 namespace Ui {
-class QtTestMainWindow;
+class MainPageManager;
 }
 
-class QtTestMainWindow : public QMainWindow, public WidgetManager
+class MainPageManager : public QMainWindow, public WidgetManager
 {
     Q_OBJECT
 
 public:
-    ~QtTestMainWindow();
-    static QtTestMainWindow & getInstance();
+    ~MainPageManager();
+    static MainPageManager & getInstance();
 
     void push(QWidget * widget);
     void pop();
@@ -23,13 +23,13 @@ public:
     void popTo(QWidget * widget);
 
 private:
-    QtTestMainWindow();
-    explicit QtTestMainWindow(QWidget *parent = 0);
+    MainPageManager();
+    explicit MainPageManager(QWidget *parent = 0);
 
 private slots:
 
 private:
-    Ui::QtTestMainWindow *ui;
+    Ui::MainPageManager *ui;
 };
 
 #endif // QTTESTMAINWINDOW_H

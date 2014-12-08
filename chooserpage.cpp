@@ -3,7 +3,7 @@
 #include "fibonacci.h"
 #include "testwidgetone.h"
 #include "testwidgettwo.h"
-#include "qttestmainwindow.h"
+#include "mainpagemanager.h"
 
 ChooserPage::ChooserPage(QWidget *parent) :
     QWidget(parent),
@@ -26,12 +26,12 @@ ChooserPage::~ChooserPage()
 void ChooserPage::handleSelectButton() {
     if (ui->listOfWidgets->currentItem()->text() == TestWidgetOne::NAME) {
         TestWidgetOne * newPage = new TestWidgetOne();
-        QtTestMainWindow::getInstance().push(newPage);
+        MainPageManager::getInstance().push(newPage);
     } else if (ui->listOfWidgets->currentItem()->text() == TestWidgetTwo::NAME) {
         TestWidgetTwo * newPage = new TestWidgetTwo();
-        QtTestMainWindow::getInstance().push(newPage);
+        MainPageManager::getInstance().push(newPage);
     } else if (ui->listOfWidgets->currentItem()->text() == Fibonacci::NAME) {
         Fibonacci * newPage = new Fibonacci();
-        QtTestMainWindow::getInstance().push(newPage);
+        MainPageManager::getInstance().push(newPage);
     }
 }

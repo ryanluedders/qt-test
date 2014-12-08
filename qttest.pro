@@ -12,26 +12,28 @@ TARGET = qttest
 TEMPLATE = app
 
 SOURCES += main.cpp\
-        qttestmainwindow.cpp \
     testwidgetone.cpp \
     testwidgettwo.cpp \
     chooserpage.cpp \
     fibonacci.cpp \
-    FibonacciUtils.cpp
+    FibonacciUtils.cpp \
+    mainpagemanager.cpp
 
-HEADERS  += qttestmainwindow.h \
+HEADERS  += \
     testwidgetone.h \
     testwidgettwo.h \
     chooserpage.h \
     WidgetManager.h \
     fibonacci.h \
-    FibonacciUtils.h
+    FibonacciUtils.h \
+    mainpagemanager.h
 
-FORMS    += qttestmainwindow.ui \
+FORMS    += \
     testwidgetone.ui \
     testwidgettwo.ui \
     chooserpage.ui \
-    fibonacci.ui
+    fibonacci.ui \
+    mainpagemanager.ui
 
 # enable c++11 support
 QMAKE_CXXFLAGS += -std=c++0x

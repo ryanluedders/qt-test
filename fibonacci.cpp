@@ -1,6 +1,6 @@
 #include "fibonacci.h"
 #include "ui_fibonacci.h"
-#include "qttestmainwindow.h"
+#include "mainpagemanager.h"
 #include "FibonacciUtils.h"
 
 const QString Fibonacci::NAME = "FIBONACCI";
@@ -27,5 +27,5 @@ Fibonacci::~Fibonacci()
 }
 
 void Fibonacci::handleBackClicked() {
-    QtTestMainWindow::getInstance().pop();
+    MainPageManager::getInstance().pop();
 }

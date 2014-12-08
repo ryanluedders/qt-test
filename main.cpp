@@ -1,10 +1,10 @@
-#include "qttestmainwindow.h"
+#include "mainpagemanager.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QtTestMainWindow::getInstance().show();
+    MainPageManager::getInstance().show();
 
     return a.exec();
 }

@@ -1,5 +1,5 @@
-#include "qttestmainwindow.h"
-#include "ui_qttestmainwindow.h"
+#include "mainpagemanager.h"
+#include "ui_mainpagemanager.h"
 
 #include <QMessageBox>
 #include <QString>
@@ -9,44 +9,44 @@
 #include "testwidgettwo.h"
 #include "chooserpage.h"
 
-static QtTestMainWindow * instance = 0;
+static MainPageManager * instance = 0;
 
-QtTestMainWindow & QtTestMainWindow::getInstance() {
+MainPageManager & MainPageManager::getInstance() {
     if (instance == 0) {
-        instance = new QtTestMainWindow(0);
+        instance = new MainPageManager(0);
     }
     return *instance;
 }
 
-QtTestMainWindow::QtTestMainWindow(QWidget * parent) :
+MainPageManager::MainPageManager(QWidget * parent) :
     QMainWindow(parent),
-    ui(new Ui::QtTestMainWindow)
+    ui(new Ui::MainPageManager)
 {
     ui->setupUi(this);
 
     push(new ChooserPage());
 }
 
-QtTestMainWindow::~QtTestMainWindow() {
+MainPageManager::~MainPageManager() {
     delete ui;
 }
 
-void QtTestMainWindow::push(QWidget * widget) {
+void MainPageManager::push(QWidget * widget) {
     ui->widgetStack->addWidget(widget);
     ui->widgetStack->setCurrentWidget(widget);
 }
 
-void QtTestMainWindow::pop() {
+void MainPageManager::pop() {
     if (ui->widgetStack->currentWidget() != 0) {
         pop(ui->widgetStack->currentWidget());
     }
 }
 
-void QtTestMainWindow::pop(QWidget * widget) {
+void MainPageManager::pop(QWidget * widget) {
     ui->widgetStack->removeWidget(widget);
 }
 
-void QtTestMainWindow::popTo(QWidget * widget) {
+void MainPageManager::popTo(QWidget * widget) {
     if (ui->widgetStack->indexOf(widget) != -1) {
         while (ui->widgetStack->currentWidget() != widget) {
             pop(ui->widgetStack->currentWidget());

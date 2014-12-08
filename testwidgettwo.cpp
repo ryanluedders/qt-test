@@ -1,6 +1,6 @@
 #include "testwidgettwo.h"
 #include "ui_testwidgettwo.h"
-#include "qttestmainwindow.h"
+#include "mainpagemanager.h"
 
 const QString TestWidgetTwo::NAME = "TEST WIDGET 2";
 
@@ -19,5 +19,5 @@ TestWidgetTwo::~TestWidgetTwo()
 }
 
 void TestWidgetTwo::handleBackClicked() {
-    QtTestMainWindow::getInstance().pop();
+    MainPageManager::getInstance().pop();
 }

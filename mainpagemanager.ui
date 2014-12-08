@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>QtTestMainWindow</class>
- <widget class="QMainWindow" name="QtTestMainWindow">
+ <class>MainPageManager</class>
+ <widget class="QMainWindow" name="MainPageManager">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -35,9 +35,6 @@
      </item>
     </layout>
    </widget>
-   <zorder>gridLayoutWidget</zorder>
-   <zorder>widgetStack</zorder>
-   <zorder>widgetStack</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
