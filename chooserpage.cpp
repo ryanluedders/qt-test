@@ -1,5 +1,6 @@
 #include "chooserpage.h"
 #include "ui_chooserpage.h"
+#include "fibonacci.h"
 #include "testwidgetone.h"
 #include "testwidgettwo.h"
 #include "qttestmainwindow.h"
@@ -12,6 +13,7 @@ ChooserPage::ChooserPage(QWidget *parent) :
 
     ui->listOfWidgets->addItem(TestWidgetOne::NAME);
     ui->listOfWidgets->addItem(TestWidgetTwo::NAME);
+    ui->listOfWidgets->addItem(Fibonacci::NAME);
 
     connect(ui->buttonSelect, SIGNAL(clicked()), this, SLOT(handleSelectButton()));
 }
@@ -27,6 +29,9 @@ void ChooserPage::handleSelectButton() {
         QtTestMainWindow::getInstance().pushWidget(newPage);
     } else if (ui->listOfWidgets->currentItem()->text() == TestWidgetTwo::NAME) {
         TestWidgetTwo * newPage = new TestWidgetTwo();
+        QtTestMainWindow::getInstance().pushWidget(newPage);
+    } else if (ui->listOfWidgets->currentItem()->text() == Fibonacci::NAME) {
+        Fibonacci * newPage = new Fibonacci();
         QtTestMainWindow::getInstance().pushWidget(newPage);
     }
 }
