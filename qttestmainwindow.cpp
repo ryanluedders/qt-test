@@ -24,26 +24,32 @@ QtTestMainWindow::QtTestMainWindow(QWidget * parent) :
 {
     ui->setupUi(this);
 
-    pushWidget(new ChooserPage());
+    push(new ChooserPage());
 }
 
 QtTestMainWindow::~QtTestMainWindow() {
     delete ui;
 }
 
-void QtTestMainWindow::pushWidget(QWidget *widget) {
+void QtTestMainWindow::push(QWidget * widget) {
     ui->widgetStack->addWidget(widget);
     ui->widgetStack->setCurrentWidget(widget);
 }
 
-void QtTestMainWindow::popWidget() {
+void QtTestMainWindow::pop() {
     if (ui->widgetStack->currentWidget() != 0) {
-        ui->widgetStack->removeWidget(ui->widgetStack->currentWidget());
+        pop(ui->widgetStack->currentWidget());
     }
 }
 
-void QtTestMainWindow::popAllWidgets() {
-    while (ui->widgetStack->currentWidget() != 0) {
-        popWidget();
+void QtTestMainWindow::pop(QWidget * widget) {
+    ui->widgetStack->removeWidget(widget);
+}
+
+void QtTestMainWindow::popTo(QWidget * widget) {
+    if (ui->widgetStack->indexOf(widget) != -1) {
+        while (ui->widgetStack->currentWidget() != widget) {
+            pop(ui->widgetStack->currentWidget());
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Ui {
 class QtTestMainWindow;
 }
 
-class QtTestMainWindow : public QMainWindow
+class QtTestMainWindow : public QMainWindow, public WidgetManager
 {
     Q_OBJECT
 
@@ -17,9 +17,10 @@ public:
     ~QtTestMainWindow();
     static QtTestMainWindow & getInstance();
 
-    void pushWidget(QWidget * widget);
-    void popWidget();
-    void popAllWidgets();
+    void push(QWidget * widget);
+    void pop();
+    void pop(QWidget * widget);
+    void popTo(QWidget * widget);
 
 private:
     QtTestMainWindow();

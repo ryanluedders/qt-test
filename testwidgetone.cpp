@@ -22,7 +22,7 @@ TestWidgetOne::~TestWidgetOne()
 }
 
 void TestWidgetOne::handleBackClicked() {
-    QtTestMainWindow::getInstance().popWidget();
+    QtTestMainWindow::getInstance().pop();
 }
 
 void TestWidgetOne::handleMessageBoxClicked() {

@@ -7,16 +7,13 @@
 class WidgetManager {
 
 public:
-
     virtual void push(QWidget * widget) = 0;
-
-    virtual void push(std::shared_ptr<QWidget> widget) = 0;
 
     virtual void pop() = 0;
 
-    virtual void pop(std::shared_ptr<QWidget> widget) = 0;
+    virtual void pop(QWidget * widget) = 0;
 
-    virtual void popTo(std::shared_ptr<QWidget> widget) = 0;
+    virtual void popTo(QWidget * widget) = 0;
 
 };
 

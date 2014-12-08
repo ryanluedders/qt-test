@@ -27,5 +27,5 @@ Fibonacci::~Fibonacci()
 }
 
 void Fibonacci::handleBackClicked() {
-    QtTestMainWindow::getInstance().popWidget();
+    QtTestMainWindow::getInstance().pop();
 }

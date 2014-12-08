@@ -19,5 +19,5 @@ TestWidgetTwo::~TestWidgetTwo()
 }
 
 void TestWidgetTwo::handleBackClicked() {
-    QtTestMainWindow::getInstance().popWidget();
+    QtTestMainWindow::getInstance().pop();
 }
