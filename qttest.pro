@@ -17,7 +17,10 @@ SOURCES += main.cpp\
     chooserpage.cpp \
     fibonacci.cpp \
     FibonacciUtils.cpp \
-    mainpagemanager.cpp
+    mainpagemanager.cpp \
+    stringtests.cpp \
+    entity.cpp \
+    sorttestpage.cpp
 
 HEADERS  += \
     testwidgetone.h \
@@ -26,14 +29,19 @@ HEADERS  += \
     WidgetManager.h \
     fibonacci.h \
     FibonacciUtils.h \
-    mainpagemanager.h
+    mainpagemanager.h \
+    stringtests.h \
+    entity.h \
+    sorttestpage.h
 
 FORMS    += \
     testwidgetone.ui \
     testwidgettwo.ui \
     chooserpage.ui \
     fibonacci.ui \
-    mainpagemanager.ui
+    mainpagemanager.ui \
+    stringtests.ui \
+    sorttestpage.ui
 
 # enable c++11 support
 QMAKE_CXXFLAGS += -std=c++0x

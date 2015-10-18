@@ -1,6 +1,7 @@
 #include "testwidgetone.h"
 #include "ui_testwidgetone.h"
 #include "mainpagemanager.h"
+#include "entity.h"
 
 #include <QMessageBox>
 
@@ -11,6 +12,9 @@ TestWidgetOne::TestWidgetOne(QWidget *parent) :
     ui(new Ui::TestWidgetOne)
 {
     ui->setupUi(this);
+
+    Entity testObject1(1);
+    Entity testObject2(2);
 
     connect(ui->buttonBack, SIGNAL(clicked()), this, SLOT(handleBackClicked()));
     connect(ui->buttonMessageBox, SIGNAL(clicked()), this, SLOT(handleMessageBoxClicked()));
